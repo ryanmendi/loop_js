@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1> Jogo De Adivinhação </h1>
+        <font size="9" id="retorno"></font>
+        <font size="6" id="retorno2"></font>
+        <h1 id="retorno1" class="normal"></h1>
+
+        <script>
+            let contador = 1
+            let Jog2 = '';
+            let jog1 = '';
+            let botao = '<button id="EscolherNum" onclick="Enviar()"> Escolher Número </button>';
+            let texto = "Seja bem-vindo ao jogo de adivinhação. <br>" +
+                "O jogador 1 irá escolher um número de 1 a 10, e o jogador 2 deve adivinhar este número";
+
+            document.getElementById("retorno2").innerHTML = texto;
+            document.getElementById("retorno1").innerHTML = botao;
+
+            function Enviar() {
+                jog1 = Number(prompt("Jogador 1 \nEscolha um número de 1 a 10"));
+                while (true) {
+                    if (!isNaN(jog1) && Number.isInteger(jog1) && jog1 >= 1 && jog1 <= 10) {
+                        botao = '<button id="EscolherNum" onclick="Enviar2()"> Escolher Número </button>';
+                        texto = "Agora o jogador 2 deve tentar adivinhar o número escolhido pelo jogador 1";
+                        document.getElementById("retorno2").innerHTML = texto;
+                        document.getElementById("retorno1").innerHTML = botao;
+                        break;
+                    } else {
+                        jog1 = Number(prompt("Por favor, digite um número inteiro de 1 a 10."));
+                    }
+                }
+            }
+
+            function Enviar2() {
+                Jog2 = Number(prompt('Jogador 2, tente adivinhar o número que o jogador 1 escolheu (de 1 a 10):'));
+                while (jog1 != Jog2) {
+                    Jog2 = Number(prompt('Jogador 2, Você errou o número, tente outro'));
+
+
+                    if (isNaN(Jog2) || !Number.isInteger(Jog2) || Jog2 < 1 || Jog2 > 10) {
+                        alert("Por favor, digite um número inteiro válido de 1 a 10.");
+                    } else {
+                        contador++;
+                    }
+                }
+                texto = "Parabéns, você acertou.</br>" +
+                    "O jogador 2 precisou de: " + contador + " tentativas para acertar" + "<br><br>" +
+                    "O número escolhido pelo jogador 1 era: " + jog1;
+                document.getElementById("retorno2").innerHTML = texto;
+            }
+        </script>
+    </center>
+</body>
+</html>
