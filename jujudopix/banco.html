@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banco</title>
+</head>
+<body>
+    <h1>Seja bem vindo</h1>
+    <p>seu saldo:</p><span id="saldo"></span>
+    <script>
+        let saldo = Number(prompt("digite seu saldo"));
+        document.getElementById('saldo').innerHTML = saldo + "R$"
+    </script>
+</body>
+</html>

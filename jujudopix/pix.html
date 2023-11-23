@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juju do pix bank</title>
+</head>
+
+<body>
+    <form>
+        <h3>login</h3>
+        <input type="text" placeholder="CPF" id="cpf"><br>
+        <input type="text" placeholder="Nome" id="nome"><br>
+        <input type="submit" onclick="entrar(); return false">
+    </form>
+    <script>
+        function entrar() {
+            let cpf = document.getElementById('cpf').value;
+            let nome = document.getElementById('nome').value;
+
+            if (cpf > 10000000000) {
+                alert("Sucesso"); location.href = "banco.html"
+            } else {
+                alert("inválido");
+            }
+        } </script>
+</body>
+
+</html>
