@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+<body>
+    <script>
+        // Função para criar uma matriz de tamanho rows x cols com números aleatórios até um valor máximo
+function criarMatrizAleatoria(rows, cols, max) {
+    const matriz = [];
+    for (let i = 0; i < rows; i++) {
+        const linha = [];
+        for (let j = 0; j < cols; j++) {
+            linha.push(Math.floor(Math.random() * (max + 1)));
+        }
+        matriz.push(linha);
+    }
+    return matriz;
+}
+
+// Função para obter a matriz inversa
+function matrizInversa(matriz) {
+    const linhas = matriz.length;
+    const colunas = matriz[0].length;
+
+    // Inicializa a matriz inversa com as dimensões invertidas
+    const matrizInversa = Array.from({ length: colunas }, () => Array(linhas));
+
+    // Preenche a matriz inversa com os valores da matriz original invertidos
+    for (let i = 0; i < linhas; i++) {
+        for (let j = 0; j < colunas; j++) {
+            matrizInversa[j][i] = matriz[i][j];
+        }
+    }
+
+    return matrizInversa;
+}
+
+// Criar a matriz A (5x6) com números aleatórios até 40
+const matrizA = criarMatrizAleatoria(5, 6, 40);
+
+// Exibir a matriz A
+console.log("Matriz A:");
+console.table(matrizA);
+
+// Obter e exibir a matriz B (inversa de A)
+const matrizB = matrizInversa(matrizA);
+
+// Exibir a matriz B
+console.log("Matriz B (inversa de A):");
+console.table(matrizB);
+
+    </script>
+</body>
+</html>
